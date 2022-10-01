@@ -1,2 +1,10 @@
 # Chat
-Chat / nodeJS/express/socket.io/ mongoose/mongoDB
+Chat 
+
+## packages utilisés
+
+- socket.io
+- mongoose
+- express
+- ejs
+- mongoDB

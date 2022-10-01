@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digichat</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://kit.fontawesome.com/d16b05e8a9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <section class="msger">
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fas fa-comment-alt"></i> Digichat
+      </div>
+    </header>
+    <main class="msger-chat" id="message-list">
+      <!-- Ajoute tous les messages de la bdd-->
+      <% messages.forEach( message=> { %>
+        <div class="msg">
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">Anonymous</div>
+              <div class="msg-info-time">
+                <%=message.date.toLocaleString("fr-FR"); %>
+              </div>
+            </div>
+            <div class="msg-text">
+              <%= message.content %>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </main>
+    <form class="msger-inputarea" id="form">
+      <input type="text" class="msger-input" id="message-input" placeholder="Entrer votre message..." autofocus>
+      <button class="msger-send-btn" id="send-btn">Envoyer</button>
+    </form>
+  </section>
+
+  <!--librairie client socket.io-->
+  <script src="/socket.io/socket.io.js"></script>
+
+
+  <!-- code du chat -->
+  <script src="js/chat.js"></script>
+</body>
+
+</html>
